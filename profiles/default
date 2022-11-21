@@ -11,3 +11,26 @@ build_type=Release
 [options]
 [build_requires]
 [env]
+
+set(CONAN_INSTALL_ARGS "--generator cmake")
+set(CONAN_INSTALL_CMD "conan install ${PROJECT_SOURCE_DIR} ${CONAN_INSTALL_ARGS}")
+set(CONAN_INSTALL_LOG "${PROJECT_BINARY_DIR}/conan_install.log")
+message(STATUS "$ cd ${PROJECT_BINARY_DIR} && ${CONAN_INSTALL_CMD} 2>&1 | tee ${CONAN_INSTALL_LOG}")
+execute_process(
+    COMMAND bash -c ${CONAN_INSTALL_CMD}
+    WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+    OUTPUT_FILE ${CONAN_INSTALL_LOG}
+    RESULT_VARIABLE CONAN_INSTALL_RET
+    ERROR_FILE ${CONAN_INSTALL_LOG})
+set(CONAN_BUILD_INFO_CMAKE ${PROJECT_BINARY_DIR}/conanbuildinfo.cmake)
+if(NOT EXISTS ${CONAN_BUILD_INFO_CMAKE}
+   OR NOT
+      CONAN_INSTALL_RET
+      EQUAL
+      "0")
+    file(READ ${CONAN_INSTALL_LOG} CONAN_INSTALL_LOG_TEXT)
+    message(WARNING ${CONAN_INSTALL_LOG_TEXT})
+    message(FATAL_ERROR "`conan install` failed! See above for cmd & log.")
+endif()
+include(${CONAN_BUILD_INFO_CMAKE})
+conan_basic_setup()
