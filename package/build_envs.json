@@ -1,0 +1,94 @@
+[
+    {
+        "///1": "======================================================================",
+        "///2  conan 编译用镜像（build envs）": "https://confluence.momenta.works/x/h-jKC",
+        "///  ": "             https://momenta.feishu.cn/wiki/wikcn5w52auDvD8yRCg9E40F2ve",
+        "///3 repo": "https://devops.momenta.works/Momenta/public/_git/run_in_build_env",
+        "///4": "======================================================================",
+
+        "id": "u16",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/ubuntu1604-python37:v0.1.8",
+        "disabled": false,
+
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"],
+        "// env_file": "specify your docker envfile",
+        "// volumes": ["/tmp:/tmp:ro"]
+    },
+    {
+        "id": "u18",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/ubuntu1804-python37:v0.1.8",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "u20",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/ubuntu2004-python37:v0.1.8",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "win",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/dockcross-win64-static:v0.1.8",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "qnx",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_qnx_momenta_cmake:v0.0.1",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "qnx_with_cuda",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_qnx_momenta_cmake_with_cuda:v0.0.1",
+        "disabled": true,
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "mph",
+        "'mph' 是一个特殊的 id，不要改": true,
+        "docker_tag": "artifactory.momenta.works/docker-momenta/mph-dev-release:v0.0.15_fix1",
+        "disabled": true,
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "mdc",
+        "docs": "https://momenta.feishu.cn/wiki/wikcnROxThAdeKE74mU6DmZ6lxe",
+        "docker_tag": "artifactory.momenta.works/docker-msd/new-ros-dev/mdc:810-v1.9000.003-1-no-s6",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "mdc_old",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/mdc:0.0.4",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "orin",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_orin_momenta_cmake:v0.0.2",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "orin_with_cuda",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_orin_momenta_cmake_with_cuda:v0.0.2",
+        "disabled": true,
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "orin_old",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/ubuntu2004-orin:v0.0.5",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "devcar",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_devcar_momenta_cmake:v0.0.2",
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "devcar_with_cuda",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build_env_devcar_momenta_cmake_with_cuda:v0.0.2",
+        "disabled": true,
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    },
+    {
+        "id": "manylinux",
+        "docker_tag": "artifactory.momenta.works/docker-momenta/build-env-manylinux2014-x64:v0.0.2",
+        "info": ["glibc=2.12", "gcc=10.2", "python=35/36/37/38/39"],
+        "envs": ["CONAN_USERNAME", "CONAN_PASSWORD"]
+    }
+]
